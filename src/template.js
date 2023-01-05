@@ -1,3 +1,5 @@
+const Employee = require("../lib/Employee");
+
 const generateTeam = team => {
 
     const createManager = manager => {
@@ -106,3 +108,4 @@ const html = [];
         `;
     };
     
+   
