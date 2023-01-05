@@ -5,10 +5,9 @@ const Intern = require('./lib/Intern');
 const inquirer = require('inquirer');
 const path = require('path');
 
-
-const distPath = path.join(DIST_DIR, 'index.html');
 const DIST_DIR = path.resolve(__dirname, 'dist');
-const render = require('./src/page-template.js');
+const distPath = path.join(DIST_DIR, 'index.html');
+const render = require('./src/template.js');
 
 const teamMembers = [];
 const idArray = [];
@@ -240,7 +239,6 @@ function appMenu() {
         createTeam();
       });
   }
-
   function buildTeam() {
     
     if (!fs.existsSync(DIST_DIR)) {
