@@ -1,7 +1,7 @@
-var createTeam = team => {
+const generateTeam = team => {
 
-    var createManager = manager => {
-        return
+    const createManager = manager => {
+        return`
         <div class="card employee-card">
         <div class="card-header">
             <h2 class="card-title">${manager.getName()}</h2>
@@ -15,8 +15,9 @@ var createTeam = team => {
             </ul>
         </div>
     </div>
+    `;
     }
-    var createEngineer = engineer => {
+    const createEngineer = engineer => {
         return `
         <div class="card employee-card">
         <div class="card-header">
@@ -33,7 +34,7 @@ var createTeam = team => {
     </div>
         `;
     };
-    var createIntern = intern => {
+    const createIntern = intern => {
         return `
         <div class="card employee-card">
     <div class="card-header">
@@ -50,25 +51,24 @@ var createTeam = team => {
     </div>
         `;
     };
-}
 
-var html = [];
-
+const html = [];
+    console.log("team", team)
     html.push(team
         .filter(employee => employee.getRole() === "Manager")
-        .map(manager => generateManager(manager))
+        .map(manager => createManager(manager))
     );
     html.push(team
         .filter(employee => employee.getRole() === "Engineer")
-        .map(engineer => generateEngineer(engineer))
+        .map(engineer => createEngineer(engineer))
         .join("")
     );
     html.push(team
         .filter(employee => employee.getRole() === "Intern")
-        .map(intern => generateIntern(intern))
+        .map(intern => createIntern(intern))
         .join("")
     );
-
+    }
     module.exports = team => {
 
         return `
